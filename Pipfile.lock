@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "decf8b46f34862a2020f3498edfe575ca50f2c5f1beed745b82b75200485e56e"
+            "sha256": "7b08660bdb840a9032c61bd868ac4e2eb52a6283d5a852373d35eec2a4fc5f3a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -83,6 +83,14 @@
             ],
             "index": "pypi",
             "version": "==0.68.1"
+        },
+        "fastapi-cache2": {
+            "hashes": [
+                "sha256:537ab5e45551897131b203d1956505a585a8d62dfce9bf97c28dcbd3a6a3fd2a",
+                "sha256:a2cba152dac335ae06a47230d7c1074fd9a4fa16e9d6006db8b9d6dd1124f29e"
+            ],
+            "index": "pypi",
+            "version": "==0.1.6"
         },
         "h11": {
             "hashes": [
@@ -224,6 +232,14 @@
             "index": "pypi",
             "version": "==1.8.2"
         },
+        "python-dateutil": {
+            "hashes": [
+                "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86",
+                "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==2.8.2"
+        },
         "python-dotenv": {
             "hashes": [
                 "sha256:aae25dc1ebe97c420f50b81fb0e5c949659af713f31fdb63c749ca68748f34b1",
@@ -287,6 +303,14 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
             "version": "==2.26.0"
+        },
+        "six": {
+            "hashes": [
+                "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
+                "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==1.16.0"
         },
         "starlette": {
             "hashes": [
