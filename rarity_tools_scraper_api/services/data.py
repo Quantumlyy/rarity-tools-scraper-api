@@ -13,5 +13,7 @@ router = APIRouter(
 	response_model=Prices
 )
 @cache(expire=60)
-async def prices_collection(collection_id: str = Path(default="", description="ID of the desired collection")) -> Prices:
+async def prices_collection(
+		collection_id: str = Path(default="", description="ID of the desired collection")
+) -> Prices:
 	return get_collection_prices(collection_id)

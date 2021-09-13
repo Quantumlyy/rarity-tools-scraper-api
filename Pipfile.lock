@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "729bbcc5db821b8bc996a37753fe61955267564233ec415e0c4cd7e24b7efe6f"
+            "sha256": "f687593df7e1d50138534b2bc2424e2e7b02ac5c76395ac2ba1b102e42956500"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -290,11 +290,11 @@
         },
         "rarity-tools-scraper": {
             "hashes": [
-                "sha256:46ec92445fc9a7a6e2a561dafd62ee2898e9d32d9a5808251f13c437d7e89876",
-                "sha256:68d3811bf9e592706c794028807f6bb406f15a35d9bfd1301e2503bedcede28c"
+                "sha256:5ee1174cedfb02eea40ea18459563e5f88124b5344fe2930585c6fd3914bbabe",
+                "sha256:e004c0abdd6cc33c030d6d0ccc73507a8a96c83ddb91e1532497647de47e8ad6"
             ],
             "index": "pypi",
-            "version": "==0.0.4"
+            "version": "==0.0.5"
         },
         "requests": {
             "hashes": [

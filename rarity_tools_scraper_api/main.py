@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 
-from rarity_tools_scraper_api.services import collections, data
+from rarity_tools_scraper_api.services import collections, data, projects
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("rest_api")
@@ -34,6 +34,7 @@ async def on_startup():
 
 app.include_router(collections.router)
 app.include_router(data.router)
+app.include_router(projects.router)
 
 if __name__ == "__main__":
 	uvicorn.run("main:app", host="127.0.0.1", port=5000, log_level="info")
