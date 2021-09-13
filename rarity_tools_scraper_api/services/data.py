@@ -3,7 +3,8 @@ from fastapi_cache.decorator import cache
 from rarity_tools_scraper.data import Prices, get_collection_prices
 
 router = APIRouter(
-	prefix="/data"
+	prefix="/data",
+	tags=["data.rarity.tools"]
 )
 
 

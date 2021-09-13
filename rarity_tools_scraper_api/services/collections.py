@@ -3,7 +3,8 @@ from fastapi_cache.decorator import cache
 from rarity_tools_scraper.collections import Collections, get_all_collections
 
 router = APIRouter(
-	prefix="/collections"
+	prefix="/collections",
+	tags=["collections.rarity.tools"]
 )
 
 
