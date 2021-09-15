@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a7e5b0bac4b81ffc0c1ea7ed13606678f8996edfe72a3d13df6a0c5b3702f091"
+            "sha256": "4ed42308f4ec612d8168cd0e632009c284a38c9954aa9c3cbf750b9430455783"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -33,11 +33,11 @@
         },
         "charset-normalizer": {
             "hashes": [
-                "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b",
-                "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+                "sha256:7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367",
+                "sha256:fa471a601dfea0f492e4f4fca035cd82155e65dc45c9b83bf4322dfab63755dd"
             ],
             "markers": "python_version >= '3'",
-            "version": "==2.0.4"
+            "version": "==2.0.5"
         },
         "click": {
             "hashes": [
@@ -221,11 +221,11 @@
         },
         "rarity-tools-scraper": {
             "hashes": [
-                "sha256:0ba3b96176a379e979f83b477fdee9351caca0282f20304c1ec9e228562ed2c7",
-                "sha256:62138a3ac3cc807b039dde6b0999092c9af78101ccd7ab8d6514b97473ecef35"
+                "sha256:91a76482d69dbb3e0f429c901fbc4b1d10350eb8479a4881d9f118fc0231f388",
+                "sha256:b6e4166ad109c6d6c0220cbedb3b6692c6fe59e608b5914b992303c9e7e4f1c4"
             ],
             "index": "pypi",
-            "version": "==0.0.6"
+            "version": "==0.0.11"
         },
         "requests": {
             "hashes": [
