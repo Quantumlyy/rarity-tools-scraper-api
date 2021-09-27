@@ -17,7 +17,9 @@ fastapi-cache2 = "==0.1.6"
 selenium = "==3.141.0"
 sqlalchemy = "==1.4.25"
 environ = "==1.0"
-psycopg2 = "*"
+psycopg2 = "==2.9.1"
+alembic = "==1.7.3"
+django-environ = "==0.7.0"
 
 [requires]
 python_version = "3.9"
