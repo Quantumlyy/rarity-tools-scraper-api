@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 
-from rarity_tools_scraper_api.services import collections, data, projects
+from rarity_tools_scraper_api.services import collectable, collections, data, projects
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("rest_api")
@@ -32,6 +32,7 @@ app = FastAPI(
 async def on_startup():
 	FastAPICache.init(InMemoryBackend())
 
+app.include_router(collectable.router)
 app.include_router(collections.router)
 app.include_router(data.router)
 app.include_router(projects.router)
