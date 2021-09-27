@@ -10,8 +10,9 @@ def set_chrome_options() -> Options:
 	chrome_options.add_argument("--disable-dev-shm-usage")
 
 	chrome_prefs = dict()
-	chrome_options.experimental_options["prefs"] = chrome_prefs
+	chrome_prefs["disk-cache-size"] = 4096
 	chrome_prefs["profile.default_content_settings"] = {"images": 2}
+	chrome_options.experimental_options["prefs"] = chrome_prefs
 
 	return chrome_options
 
