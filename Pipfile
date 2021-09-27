@@ -4,6 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+nox = "==2020.12.31"
+flake8 = "==3.9.1"
 
 [packages]
 fastapi = "==0.68.1"

@@ -11,18 +11,22 @@ ua = UserAgent()
 
 
 def get_collectable_data(collection: str, collectable: str):
-	# TODO: https://sqa.stackexchange.com/questions/45933/how-do-i-enable-chromedriver-to-use-browser-cache-or-local-storage-with-selenium
-	driver = webdriver.Chrome(options=set_chrome_options(),
-	                          # executable_path=r"C:\Users\Quantumly\Downloads\chromedriver_win32\chromedriver.exe"
-	                          )
-	block_google_cdn(driver)
+    # TODO: https://sqa.stackexchange.com/questions/45933/how-do-i-enable-chromedriver-to-use-browser-cache-or-local-storage-with-selenium
+    driver = webdriver.Chrome(
+        options=set_chrome_options(),
+        # executable_path=r"C:\Users\Quantumly\Downloads\chromedriver_win32\chromedriver.exe"
+    )
+    block_google_cdn(driver)
 
-	driver.get(BASE_COLLECTABLE_VIEW_URL.format(collection=collection, id=collectable))
+    driver.get(BASE_COLLECTABLE_VIEW_URL.format(collection=collection, id=collectable))
 
-	# new_tab = driver.window_handles[-1]
-	# driver.switch_to.window(new_tab)
+    # new_tab = driver.window_handles[-1]
+    # driver.switch_to.window(new_tab)
 
-	element = WebDriverWait(driver, 120) \
-		.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".font-extrabold.text-green-500")))
+    element = WebDriverWait(driver, 120).until(
+        EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, ".font-extrabold.text-green-500")
+        )
+    )
 
-	return element, driver
+    return element, driver
