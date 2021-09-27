@@ -1,7 +1,12 @@
 import nox
 
 nox.options.sessions = ["lint"]
-locations = "rarity_tools_scraper_api", "rarity_tools_scraper_lib", "noxfile.py"
+locations = (
+    "rarity_tools_scraper_api",
+    "rarity_tools_scraper_data",
+    "rarity_tools_scraper_lib",
+    "noxfile.py",
+)
 
 
 @nox.session(python="3.9")
