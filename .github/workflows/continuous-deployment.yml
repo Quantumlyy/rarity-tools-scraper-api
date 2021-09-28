@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'Dockerfile'
+      - 'docker-entrypoint.sh'
       - '.github/workflows/continuous-deployment.yml'
       - 'README.md'
       - 'rarity_tools_scraper_api/**'
