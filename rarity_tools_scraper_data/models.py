@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, UniqueConstraint, Float
+from sqlalchemy import Column, Integer, String, UniqueConstraint, Float, Boolean
 
 from rarity_tools_scraper_data.database import Base
 
@@ -12,5 +12,7 @@ class Collectable(Base):
     collection_id = Column(Integer, index=True)
 
     score = Column(Float)
+
+    stale = Column(Boolean, default=False)
 
     __table_args__ = (UniqueConstraint("collection_name", "collection_id", name="_collection_name_id_uc"),)
