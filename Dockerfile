@@ -19,5 +19,6 @@ COPY Pipfile Pipfile.lock ./
 RUN PIP_NO_CACHE_DIR=off pipenv install --system --deploy
 
 COPY . .
+COPY ./docker-entrypoint.sh /usr/local/bin/
 
 CMD ["docker-entrypoint.sh"]
