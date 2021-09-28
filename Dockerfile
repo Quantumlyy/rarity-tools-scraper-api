@@ -20,4 +20,4 @@ RUN PIP_NO_CACHE_DIR=off pipenv install --system --deploy
 
 COPY . .
 
-CMD python -m uvicorn rarity_tools_scraper_api.main:app --host 0.0.0.0 --port 80
+CMD ["docker-entrypoint.sh"]

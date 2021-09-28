@@ -3,7 +3,7 @@ from fastapi_cache.decorator import cache
 from sqlalchemy.orm import Session
 
 from rarity_tools_scraper_data import models
-from rarity_tools_scraper_data.database import SessionLocal, get_db
+from rarity_tools_scraper_data.database import get_db
 from rarity_tools_scraper_lib.score import get_collectable_data
 
 

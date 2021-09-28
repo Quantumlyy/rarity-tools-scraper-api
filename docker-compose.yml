@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  db:
+    container_name: 'internet.lss-rp.net-db'
+    image: 'postgres:latest'
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - '/opt/internet.lss-rp.net/data:/var/lib/postgresql/data'
+    restart: always
+  app:
+    container_name: 'internet.lss-rp.net'
+    image: 'ghcr.io/lssrp/lssrp:main'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    environment:
+      DEBUG: 'False'
+      ALLOWED_HOSTS: 'internet.lss-rp.net,localhost,127.0.0.1'
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      SECRET_KEY: ${SECRET_KEY}
+    volumes:
+      - '/opt/internet.lss-rp.net/static:/usr/src/static'
+    ports:
+      - '127.0.0.1:51280:80'
+    restart: always
+
+networks:
+  default:
+    external:
+      name: lifeinvader
