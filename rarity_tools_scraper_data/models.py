@@ -15,4 +15,8 @@ class Collectable(Base):
 
     stale = Column(Boolean, default=False)
 
-    __table_args__ = (UniqueConstraint("collection_name", "collection_id", name="_collection_name_id_uc"),)
+    __table_args__ = (
+        UniqueConstraint(
+            "collection_name", "collection_id", name="_collection_name_id_uc"
+        ),
+    )
