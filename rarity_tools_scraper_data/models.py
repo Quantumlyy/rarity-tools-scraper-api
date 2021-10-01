@@ -12,6 +12,7 @@ class Collectable(Base):
     collection_id = Column(Integer, index=True)
 
     score = Column(Float)
+    rank = Column(Integer)
 
     stale = Column(Boolean, default=False)
 

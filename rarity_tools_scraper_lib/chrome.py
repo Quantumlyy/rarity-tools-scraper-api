@@ -23,3 +23,13 @@ def block_google_cdn(driver: Chrome) -> None:
         "Network.setBlockedURLs", {"urls": ["https://lh3.googleusercontent.com"]}
     )
     driver.execute_cdp_cmd("Network.enable", {})
+
+
+def init_driver() -> Chrome:
+    driver = Chrome(
+        options=set_chrome_options(),
+        # executable_path=r"C:\Users\Quantumly\Downloads\chromedriver_win32\chromedriver.exe"
+    )
+    block_google_cdn(driver)
+
+    return driver
