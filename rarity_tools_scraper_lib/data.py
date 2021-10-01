@@ -10,29 +10,20 @@ BASE_COLLECTABLE_VIEW_URL = "https://rarity.tools/{collection}/view/{id}"
 ua = UserAgent()
 
 
-def get_collectable_score(
+def get_collectable_data(
     collection: str, collectable: str, driver: webdriver.Chrome = init_driver()
 ):
     driver.get(BASE_COLLECTABLE_VIEW_URL.format(collection=collection, id=collectable))
 
-    element = WebDriverWait(driver, 120).until(
+    score_element = WebDriverWait(driver, 120).until(
         EC.visibility_of_element_located(
             (By.CSS_SELECTOR, ".font-extrabold.text-green-500")
         )
     )
-
-    return element, driver
-
-
-def get_collectable_rank(
-    collection: str, collectable: str, driver: webdriver.Chrome = init_driver()
-):
-    driver.get(BASE_COLLECTABLE_VIEW_URL.format(collection=collection, id=collectable))
-
-    element = WebDriverWait(driver, 120).until(
+    rank_element = WebDriverWait(driver, 120).until(
         EC.visibility_of_element_located(
             (By.CSS_SELECTOR, ".font-bold.whitespace-nowrap")
         )
     )
 
-    return element, driver
+    return score_element, rank_element, driver
