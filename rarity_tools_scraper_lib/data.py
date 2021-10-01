@@ -11,8 +11,11 @@ ua = UserAgent()
 
 
 def get_collectable_data(
-    collection: str, collectable: str, driver: webdriver.Chrome = init_driver()
+    collection: str, collectable: str, driver: webdriver.Chrome = None
 ):
+    if driver is None:
+        driver = init_driver()
+
     driver.get(BASE_COLLECTABLE_VIEW_URL.format(collection=collection, id=collectable))
 
     score_element = WebDriverWait(driver, 120).until(
