@@ -26,15 +26,15 @@ async def collectable_score(
     )
 
     if collectable is None or collectable.stale is True:
-        score_element, _driver = get_collectable_score(collection_id, collectable_id)
-        score = score_element.text
-
-        rank_element, driver = get_collectable_rank(
-            collection_id, collectable_id, _driver
+        score_element, score_driver = get_collectable_score(
+            collection_id, collectable_id
         )
-        rank = rank_element.text.split("#")[1]
+        score = score_element.text
+        score_driver.close()
 
-        driver.quit()
+        rank_element, rank_driver = get_collectable_rank(collection_id, collectable_id)
+        rank = rank_element.text.split("#")[1]
+        rank_driver.close()
 
         collectable = models.Collectable(
             collection_id=collectable_id,
