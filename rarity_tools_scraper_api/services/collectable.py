@@ -30,11 +30,11 @@ async def collectable_score(
             collection_id, collectable_id
         )
         score = score_element.text
-        score_driver.close()
+        score_driver.quit()
 
         rank_element, rank_driver = get_collectable_rank(collection_id, collectable_id)
         rank = rank_element.text.split("#")[1]
-        rank_driver.close()
+        rank_driver.quit()
 
         collectable = models.Collectable(
             collection_id=collectable_id,

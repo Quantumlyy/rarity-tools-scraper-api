@@ -20,7 +20,14 @@ def set_chrome_options() -> Options:
 
 def block_google_cdn(driver: Chrome) -> None:
     driver.execute_cdp_cmd(
-        "Network.setBlockedURLs", {"urls": ["https://lh3.googleusercontent.com"]}
+        "Network.setBlockedURLs",
+        {
+            "urls": [
+                "https://lh3.googleusercontent.com",
+                "https://projects.rarity.tools/static/images",
+                "https://vultrobjects.com",
+            ]
+        },
     )
     driver.execute_cdp_cmd("Network.enable", {})
 
