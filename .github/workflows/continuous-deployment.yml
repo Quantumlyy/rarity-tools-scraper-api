@@ -10,6 +10,8 @@ on:
       - '.github/workflows/continuous-deployment.yml'
       - 'README.md'
       - 'rarity_tools_scraper_api/**'
+      - 'rarity_tools_scraper_lib/**'
+      - 'rarity_tools_scraper_data/**'
 
 jobs:
   PushToRegistry:
