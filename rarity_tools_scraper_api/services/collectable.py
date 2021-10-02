@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from rarity_tools_scraper_data import models
 from rarity_tools_scraper_data.database import get_db
-from rarity_tools_scraper_lib.data import get_collectable_data
+from rarity_tools_scraper_lib.data import handle_collectable_data
 
 router = APIRouter(prefix="/collectable")
 
@@ -26,12 +26,7 @@ async def collectable_score(
     )
 
     if collectable is None or collectable.stale is True:
-        score_element, rank_element, driver = get_collectable_data(
-            collection_id, collectable_id
-        )
-        score = score_element.text
-        rank = rank_element.text.split("#")[1]
-        driver.quit()
+        score, rank = handle_collectable_data(collection_id, collectable_id)
 
         collectable = models.Collectable(
             collection_id=collectable_id,

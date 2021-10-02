@@ -30,3 +30,16 @@ def get_collectable_data(
     )
 
     return score_element, rank_element, driver
+
+
+def handle_collectable_data(
+    collection: str, collectable: str, driver: webdriver.Chrome = None
+):
+    score_element, rank_element, driver = get_collectable_data(
+        collection, collectable, driver
+    )
+    score = score_element.text
+    rank = rank_element.text.split("#")[1]
+    driver.quit()
+
+    return score, rank

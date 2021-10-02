@@ -5,6 +5,7 @@ locations = (
     "rarity_tools_scraper_api",
     "rarity_tools_scraper_data",
     "rarity_tools_scraper_lib",
+    "prepare.py",
     "noxfile.py",
 )
 

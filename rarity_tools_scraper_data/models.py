@@ -21,3 +21,14 @@ class Collectable(Base):
             "collection_name", "collection_id", name="_collection_name_id_uc"
         ),
     )
+
+
+class Collection(Base):
+    __tablename__: str = "collections"
+
+    id = Column(String, primary_key=True, index=True)
+
+    # collectables = https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#many-to-one
+
+    progress_count = Column(Integer, default=0)
+    collectables_count = Column(Integer)

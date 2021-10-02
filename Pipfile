@@ -20,6 +20,7 @@ environ = "==1.0"
 psycopg2 = "==2.9.1"
 alembic = "==1.7.3"
 django-environ = "==0.7.0"
+click = "==8.0.1"
 
 [requires]
 python_version = "3.9"
