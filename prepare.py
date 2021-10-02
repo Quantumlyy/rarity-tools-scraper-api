@@ -42,7 +42,9 @@ def prepare(collection, size):
         db.commit()
         db.refresh(collectable)
 
-        print("Completed {id}".format(id=i))
+        print("Completed {id}/{size}".format(id=i, size=size))
+
+    print('Collection "{collection}" complete'.format(collection=collection))
 
 
 if __name__ == "__main__":
