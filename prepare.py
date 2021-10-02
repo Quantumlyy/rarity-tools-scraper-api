@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import click
+from sqlalchemy.orm import scoped_session
 
 from rarity_tools_scraper_data import models, database
 from rarity_tools_scraper_lib import data
@@ -11,7 +12,7 @@ from rarity_tools_scraper_lib import data
 )
 @click.option("--size", prompt="Size of the collection")
 def prepare(collection, size):
-    db = database.SessionLocal()
+    db = scoped_session(database.SessionLocal)
     collection_entry = database.get_or_create(
         db, models.Collection, id=collection, collectables_count=size
     )
@@ -42,9 +43,17 @@ def prepare(collection, size):
         db.commit()
         db.refresh(collectable)
 
-        print("Completed {id}/{size}".format(id=i, size=size))
+        print(
+            "[{collection}] Completed {id}/{size} - {percentage}%".format(
+                id=i,
+                size=size,
+                collection=collection,
+                percentage=(100 * float(i) / float(size)),
+            )
+        )
 
-    print('Collection "{collection}" complete'.format(collection=collection))
+    print("[{collection}] Complete".format(collection=collection))
+    db.remove()
 
 
 if __name__ == "__main__":

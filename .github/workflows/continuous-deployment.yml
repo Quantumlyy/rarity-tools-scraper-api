@@ -9,6 +9,7 @@ on:
       - 'docker-entrypoint.sh'
       - '.github/workflows/continuous-deployment.yml'
       - 'README.md'
+      - 'prepare.py'
       - 'rarity_tools_scraper_api/**'
       - 'rarity_tools_scraper_lib/**'
       - 'rarity_tools_scraper_data/**'
