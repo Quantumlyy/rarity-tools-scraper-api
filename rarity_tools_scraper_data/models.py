@@ -6,7 +6,7 @@ from rarity_tools_scraper_data.database import Base
 class Collectable(Base):
     __tablename__: str = "collectables"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True, autoincrement=False)
 
     collection_name = Column(String, index=True)
     collection_id = Column(Integer, index=True)
