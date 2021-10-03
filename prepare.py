@@ -27,6 +27,7 @@ def prepare(collection, size):
         score, rank = data.handle_collectable_data(collection, i)
 
         collectable = models.Collectable(
+            id=data.generate_collection_string(collection, i),
             collection_id=i,
             collection_name=collection,
             score=score,
@@ -35,8 +36,7 @@ def prepare(collection, size):
         collection_entry.progress_count = i
 
         db.query(models.Collectable).filter(
-            models.Collectable.collection_id == i,
-            models.Collectable.collection_name == collection,
+            models.Collectable.id == data.generate_collection_string(collection, i)
         ).delete()
 
         db.add(collectable)

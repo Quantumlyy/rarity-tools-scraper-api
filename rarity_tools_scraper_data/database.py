@@ -6,8 +6,7 @@ from rarity_tools_scraper_lib import env
 
 engine = create_engine(
     # postgresql+psycopg2://user:password@host:port/dbname[?key=value&key=value...]
-    env.env("DATABASE_URL", default=None),
-    isolation_level="SERIALIZABLE",
+    env.env("DATABASE_URL", default=None)
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

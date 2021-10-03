@@ -10,6 +10,12 @@ BASE_COLLECTABLE_VIEW_URL = "https://rarity.tools/{collection}/view/{id}"
 ua = UserAgent()
 
 
+def generate_collection_string(collection: str, collectable: int) -> str:
+    return "{collection}-{collectable}".format(
+        collection=collection, collectable=collectable
+    )
+
+
 def get_collectable_data(
     collection: str, collectable: str, driver: webdriver.Chrome = None
 ):

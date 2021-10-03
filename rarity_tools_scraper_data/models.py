@@ -11,10 +11,10 @@ class Collectable(Base):
     collection_name = Column(String, index=True)
     collection_id = Column(Integer, index=True)
 
-    score = Column(Float)
-    rank = Column(Integer)
+    score = Column(Float, index=True)
+    rank = Column(Integer, index=True)
 
-    stale = Column(Boolean, default=False)
+    stale = Column(Boolean, default=False, index=True)
 
     __table_args__ = (
         UniqueConstraint(
@@ -26,9 +26,7 @@ class Collectable(Base):
 class Collection(Base):
     __tablename__: str = "collections"
 
-    id = Column(String, primary_key=True, index=True)
-
+    id = Column(String, primary_key=True, index=True, autoincrement=False)
     # collectables = https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#many-to-one
-
     progress_count = Column(Integer, default=0)
     collectables_count = Column(Integer)

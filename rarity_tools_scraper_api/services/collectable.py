@@ -4,7 +4,10 @@ from sqlalchemy.orm import Session
 
 from rarity_tools_scraper_data import models
 from rarity_tools_scraper_data.database import get_db
-from rarity_tools_scraper_lib.data import handle_collectable_data
+from rarity_tools_scraper_lib.data import (
+    handle_collectable_data,
+    generate_collection_string,
+)
 
 router = APIRouter(prefix="/collectable")
 
@@ -19,8 +22,8 @@ async def collectable_score(
     collectable = (
         db.query(models.Collectable)
         .filter(
-            models.Collectable.collection_id == collectable_id,
-            models.Collectable.collection_name == collection_id,
+            models.Collectable.id
+            == generate_collection_string(collection_id, collectable_id)
         )
         .first()
     )
@@ -29,6 +32,7 @@ async def collectable_score(
         score, rank = handle_collectable_data(collection_id, collectable_id)
 
         collectable = models.Collectable(
+            id=generate_collection_string(collection_id, collectable_id),
             collection_id=collectable_id,
             collection_name=collection_id,
             score=score,
@@ -36,8 +40,8 @@ async def collectable_score(
         )
 
         db.query(models.Collectable).filter(
-            models.Collectable.collection_id == collectable_id,
-            models.Collectable.collection_name == collection_id,
+            models.Collectable.id
+            == generate_collection_string(collection_id, collectable_id)
         ).delete()
 
         db.add(collectable)
