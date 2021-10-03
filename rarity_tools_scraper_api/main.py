@@ -5,7 +5,9 @@ from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 
-from rarity_tools_scraper_api.services import collectable, collections, data, projects
+from rarity_tools_scraper_api.services import (
+    rarity_tools,
+)
 from rarity_tools_scraper_data import models
 from rarity_tools_scraper_data.database import engine
 
@@ -37,10 +39,7 @@ async def on_startup():
     FastAPICache.init(InMemoryBackend())
 
 
-app.include_router(collectable.router)
-app.include_router(collections.router)
-app.include_router(data.router)
-app.include_router(projects.router)
+app.include_router(rarity_tools.router)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=5000, log_level="info")
