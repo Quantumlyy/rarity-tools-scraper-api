@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Path, Depends
 from fastapi_cache.decorator import cache
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from rarity_tools_scraper_data import models
@@ -12,7 +13,12 @@ from rarity_tools_scraper_lib.data import (
 router = APIRouter(prefix="/collectable")
 
 
-@router.get("/score/{collection_id}/{collectable_id}")
+class Collectable(BaseModel):
+    rank: int
+    score: float
+
+
+@router.get("/score/{collection_id}/{collectable_id}", response_model=Collectable)
 @cache(expire=60 * 60 * 24)
 async def collectable_score(
     collection_id: str = Path(default="", description="ID of the desired collection"),
@@ -48,4 +54,4 @@ async def collectable_score(
         db.commit()
         db.refresh(collectable)
 
-    return "{rank}-{score}".format(rank=collectable.rank, score=collectable.score)
+    return Collectable(rank=int(collectable.rank), score=float(collectable.score))
